@@ -8,9 +8,10 @@ export async function generateStaticParams(){
     const res = await fetch("https://fakestoreapi.com/products");
     const products = await res.json();
 
-    return products.map((product:any)=> {
-        id: product.id.toString();
-    })
+    return products.map((product: any) => ({
+    id: product.id.toString()
+    }));
+
 }
 
 export default async function ProductPage({params}: Params){
